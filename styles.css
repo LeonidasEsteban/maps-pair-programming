@@ -1,0 +1,34 @@
+body {
+  margin: 0;
+}
+#map {
+  width: 100vw;
+  height: 90vh;
+}
+
+#controls {
+  height: 10vh;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+}
+
+button {
+  background: white;
+  border-radius: .5em;
+  text-transform: uppercase;
+  padding: 1em 4em;
+  color: black;
+  box-shadow: 0 2px 5px rgba(0,0,0,.3);
+  border: none;
+  margin: 0 1em;
+  cursor: pointer;
+  outline: 0;
+}
+
+button:hover, button.is-active {
+  background: #82a467;
+  color: white;
+}
