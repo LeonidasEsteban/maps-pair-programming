@@ -1,3 +1,6 @@
+import mapStyle from './style.js'
+import colors from './species_colors.js'
+
 const $map = document.getElementById('map');
 const $controls = document.getElementById('controls');
 const $loader = document.getElementById('loader');
@@ -35,7 +38,7 @@ async function getLayer(country = 'austria'){
         id : 'trees',
         data: DATA_COUNTRY,
         opacity: 0.8,
-        stroked: true,
+        stroked: false,
         filled: true,
         radiusScale: 6,
         radiusMinPixels: 1,
@@ -43,8 +46,8 @@ async function getLayer(country = 'austria'){
         lineWidthMinPixels: 1,
         getPosition: d=> [d.lng, d.lat],
         getRadius : d => 50,
-        getFillColor: d=> [0,155,115],
-        getLineColor: d=> [30,30,30]
+        getFillColor: d=> colors[d.specie],
+        //getLineColor: d=> [30,30,30]
     });
 }
 
@@ -61,9 +64,11 @@ async function renderButtons() {
 }
 
 async function initMap(){
-    GMAP = new google.maps.Map($map , {
-        zoom : 4,
-        center: EUROPE_CENTER
+    
+    GMAP = new google.maps.Map($map, {
+      zoom: 4,
+      center: EUROPE_CENTER,
+      styles: mapStyle,
     });
 
     DECKGL_OVERLAY = new GoogleMapsOverlay();
