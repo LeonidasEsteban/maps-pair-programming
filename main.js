@@ -1,29 +1,39 @@
 const $map = document.getElementById('map');
 const $controls = document.getElementById('controls');
+const $loader = document.getElementById('loader');
 const EUROPE_CENTER = {lat: 47.582798, lng: 9.707756};
 
 const {ScatterplotLayer, GoogleMapsOverlay} = deck;
 
-let GMAP , DECKGL_OVERLAY;
+let GMAP , DECKGL_OVERLAY, DATA_COUNTRY;
 
 async function updateMap() {
   const $activeElement = document.querySelector(".is-active");
   if ($activeElement) {
     $activeElement.classList.remove('is-active')
   }
+  $loader.classList.add("is-active");
   this.classList.add('is-active')
   let country = this.textContent.replace(/ /g,'').toLowerCase();
   let layer = await getLayer(country);
   DECKGL_OVERLAY.setProps({layers: [layer]});
+  if(country === 'all'){
+      GMAP.setCenter(EUROPE_CENTER);
+      GMAP.setZoom(4);
+  }else{
+      GMAP.setCenter({lat: DATA_COUNTRY[0].lat,lng: DATA_COUNTRY[0].lng })
+      GMAP.setZoom(5);
+  }
+  $loader.classList.remove("is-active");
 }
 
 async function getLayer(country = 'austria'){
     const request_country =  await fetch(`./data/${country}.json`);
-    const data_country = await request_country.json();
+    DATA_COUNTRY = await request_country.json();
 
     return await new ScatterplotLayer({
         id : 'trees',
-        data: data_country,
+        data: DATA_COUNTRY,
         opacity: 0.8,
         stroked: true,
         filled: true,

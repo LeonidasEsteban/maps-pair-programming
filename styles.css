@@ -15,6 +15,26 @@ body {
   align-items: center;
 }
 
+#loader {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 2;
+  width: 50%;
+  transform: translateY(calc(45vh - 50%));
+  opacity: 0;
+  visibility: hidden;
+  transition: .2s;
+}
+
+#loader.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+
 button {
   background: white;
   border-radius: .5em;
