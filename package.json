@@ -1,0 +1,24 @@
+{
+  "name": "maps-pair-programming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeonidasEsteban/maps-pair-programming.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeonidasEsteban/maps-pair-programming/issues"
+  },
+  "homepage": "https://github.com/LeonidasEsteban/maps-pair-programming#readme",
+  "dependencies": {
+    "csvtojson": "^2.0.10",
+    "fs": "0.0.1-security"
+  }
+}
