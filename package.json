@@ -19,6 +19,7 @@
   "homepage": "https://github.com/LeonidasEsteban/maps-pair-programming#readme",
   "dependencies": {
     "csvtojson": "^2.0.10",
-    "fs": "0.0.1-security"
+    "fs": "0.0.1-security",
+    "proj4": "^2.6.2"
   }
 }
